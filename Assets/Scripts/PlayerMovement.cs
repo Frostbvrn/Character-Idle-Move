@@ -4,9 +4,10 @@ using UnityEngine;
 
 public class PlayerMovement : BaseMovement
 {
+
     [SerializeField]
     private AnimatorController myAnim;
-    
+
     private Vector3 tempMovement;
 
     // Start is called before the first frame update
@@ -19,7 +20,7 @@ public class PlayerMovement : BaseMovement
     private void Update()
     {
         tempMovement = Input.GetAxis("Horizontal") * Camera.main.transform.right + Input.GetAxis("Vertical") * Camera.main.transform.forward;
-        tempMovement.y = 0f; //Ensures no vertical movement
+        tempMovement.y = 0f; // Ensure no vertical movement
     }
 
     void FixedUpdate()
@@ -32,6 +33,7 @@ public class PlayerMovement : BaseMovement
     {
         Move(tempMovement);
     }
+
     void ChangeAnimation()
     {
         if (myAnim)
@@ -40,7 +42,7 @@ public class PlayerMovement : BaseMovement
             {
                 myAnim.ChangeAnimBoolValue("Running", true);
 
-                float rot = Math.Atan2(-tempMovement.z, tempMovement.x) * Mathf.Rad2Deg + 90f;
+                float rot = Mathf.Atan2(-tempMovement.z, tempMovement.x) * Mathf.Rad2Deg + 90f;
                 transform.rotation = Quaternion.Euler(0f, rot, 0f);
             }
             else

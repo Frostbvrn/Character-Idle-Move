@@ -10,11 +10,11 @@ public class AnimatorController : MonoBehaviour
 
     private void ChangeAnimFloatValue (string key, float newValue)
     {
-        anim.SetFloat (key, newValue);
+        anim.SetFloat(key, newValue);
     }
 
-    public void ChangeAnimBoolValue (string key, bool newValue)
+    public void ChangeAnimBoolValue(string key, bool newValue)
     {
-        anim.SetBool (key, newValue);
+        anim.SetBool(key, newValue);
     }
 }

@@ -14,21 +14,19 @@ public class BaseMovement : MonoBehaviour
 
     [Header("References")]
     [SerializeField]
-    private Rigidbody myRigidBody;
-
-
+    private Rigidbody myRigidbody;
 
     // Start is called before the first frame update
     void Awake()
     {
-        if(!myRigidBody) 
+        if (!myRigidbody)
         {
-            myRigidBody = GetComponent<Rigidbody>();
+            myRigidbody = GetComponent<Rigidbody>();
         }
     }
 
     public void Move(Vector3 moveDirection)
     {
-        myRigidBody.velocity = moveDirection.normalized * moveSpeed;
+        myRigidbody.velocity = moveDirection.normalized * moveSpeed;
     }
 }
